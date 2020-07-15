@@ -31,7 +31,8 @@
                     <a href="#made">1) Some things I made</a><br />
                     <a href="#jobs">2) Jobs I've done</a><br />
                     <a href="#know">3) Stuff I know about</a><br />
-                    <a href="#employers">4) What I value in employers</a><br />
+                    <a href="#employers">4) What I value in an employer</a
+                    ><br />
                     <a href="#story">5) My story</a><br />
                     <a href="#interests">6) My wider interests</a><br />
                     <a href="#contact">7) Get in touch</a><br />
@@ -85,9 +86,12 @@
                                 >
                             </li>
                             <li>
-                                <a href="https://prepare-me.netlify.app/"
-                                    >https://prepare-me.netlify.app/</a
+                                <a
+                                    href="https://prepare-me.netlify.app/"
+                                    target="_blank"
                                 >
+                                    https://prepare-me.netlify.app/
+                                </a>
                             </li>
                         </ul>
                     </article>
@@ -135,9 +139,12 @@
                                 </span>
                             </li>
                             <li>
-                                <a href="https://cardley.netlify.app/"
-                                    >https://cardley.netlify.app/</a
+                                <a
+                                    href="https://cardley.netlify.app/"
+                                    target="_blank"
                                 >
+                                    https://cardley.netlify.app/
+                                </a>
                             </li>
                         </ul>
                     </article>
@@ -191,6 +198,14 @@
                                     AS3, Bash, Linux, Android, WXWidgets, MySQL,
                                     SQLite, Drupal, Django
                                 </span>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.technicalbloke.com"
+                                    target="_blank"
+                                >
+                                    Technicalbloke.com
+                                </a>
                             </li>
                         </ul>
                     </article>
@@ -298,7 +313,7 @@
                     </article>
                 </section>
 
-                <section class="story">My interests<br /></section>
+                <section class="story">My story<br /></section>
 
                 <section class="interests">My interests<br /></section>
 
@@ -315,7 +330,10 @@
 
                 <section class="made">
                     <article class="thing">
-                        <a href="https://prepare-me.netlify.app/">
+                        <a
+                            href="https://prepare-me.netlify.app/"
+                            target="_blank"
+                        >
                             <img
                                 src="https://camo.githubusercontent.com/cc1338b6763356739e851eaec751e0d99324039e/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6469647572357073782f696d6167652f75706c6f61642f76313539323535303433392f7374617274696e675f7363686f6f6c2f707265706172655f6d655f6170705f30325f7573357879702e676966"
                             />
@@ -341,7 +359,7 @@
                     </article>
 
                     <article class="thing">
-                        <a href="https://recorda.netlify.app/">
+                        <a href="https://recorda.netlify.app/" target="_blank">
                             <img
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1593418322/portfolio-site/recorda_vid_iyftyn.gif"
                             />
@@ -362,6 +380,7 @@
                     <article class="thing">
                         <a
                             href="https://web.archive.org/web/20140625075853/http://cmlsupport.org.uk/"
+                            target="_blank"
                         >
                             <img
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594227098/portfolio-site/cmlsupport-smaller_clczud.gif"
@@ -381,6 +400,7 @@
                     <article class="thing">
                         <a
                             href="http://web.archive.org/web/20110726012401/http://www.skulldisco.com/shop"
+                            target="_blank"
                         >
                             <img
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1593420024/portfolio-site/skull_disco_screengrab_odeket.gif"
@@ -400,6 +420,7 @@
                     <article class="thing">
                         <a
                             href="https://web.archive.org/web/20110809080822/http://www.instrumentswap.co.uk/"
+                            target="_blank"
                         >
                             <img
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594221667/portfolio-site/instrumentswap2-smaller_eomfyu.gif"
@@ -553,6 +574,9 @@
         const cursorNode = document.querySelector(".cursor");
         const displayBackNode = document.getElementById("back");
         let highlightIndex = 0;
+        let internalHistory = [];
+        // let inititalHistoryLength = history.length;
+        // console.log("INITIAL HISTLEN:", inititalHistoryLength);
 
         const spinnerNext = {"-": "\\", "\\": "|", "|": "/", "/": "-"};
         const routes = {
@@ -563,7 +587,7 @@
             3: "know",
             4: "employers",
             5: "story",
-            5: "interests",
+            6: "interests",
             7: "contact"
         };
 
@@ -612,12 +636,9 @@
         function displayScreen(pageClass) {
             displayBack(pageClass !== "main");
             nextScreen = document.querySelector(`.${pageClass}`);
+            history.pushState(null, null, `/#${pageClass}`);
             if (nextScreen) {
-                window.history.pushState(
-                    pageClass,
-                    pageClass,
-                    `/#${pageClass}`
-                );
+                internalHistory.push(1);
                 screens = document.querySelectorAll(".terminal section");
                 screens.forEach(screen => screen.classList.remove("active"));
                 nextScreen.classList.add("active");
@@ -629,14 +650,16 @@
 
         // Execute commands
         function execute(cmd) {
-            console.log("CMD:", cmd);
+            if (cmd.toUpperCase() === "B") {
+                internalHistory = [];
+                console.log("internalHistory length:", internalHistory);
+            }
             if (routes[cmd]) displayScreen(routes[cmd]);
             cmdLine.length = 0;
         }
 
         // Handle keyboard input
         function handleKeys(event) {
-            console.log(event.key);
             if (event.key.length === 1) {
                 cmdLine.push(event.key);
             } else {
@@ -653,16 +676,24 @@
         function handleClicks(event) {
             console.log(event.target.tagName);
             if (event.target.tagName === "A") {
-                event.preventDefault();
-                displayScreen(internalLink(event.target.href));
+                if (internalLink(event.target.href)) {
+                    event.preventDefault();
+                    displayScreen(internalLink(event.target.href));
+                }
             }
         }
         window.addEventListener("click", handleClicks);
 
+        window.addEventListener("popstate", event => {
+            event.preventDefault();
+            internalHistory.pop();
+            internalHistory.length === 0 ? history.back() : history.go(0);
+        });
+
         // If URL contains an internal link then go to that, otherwise show main screen
         const link = internalLink(window.location.href) || "main";
         console.log("LINK:", link);
-        // Display loading page for 1.5 seconds then display screen and show command line
+        // Briefly display loading page then display screen and show command line
         setTimeout(() => {
             displayScreen(link);
             unhideCommandLine();
