@@ -946,6 +946,10 @@
 
                 rect.object.position.z = rect.object.position.z + rect.zSpeed
                 if(rect.object.position.z > -1) rect.object.position.z = -FAR
+
+                gridHelper.position.z = gridHelper.position.z + 0.0005
+                if(gridHelper.position.z>1) gridHelper.position.z = 0
+
             })
 
             renderer.render( scene, camera );
