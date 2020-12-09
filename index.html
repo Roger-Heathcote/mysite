@@ -68,10 +68,9 @@
                 overflow-y: scroll;
             }
             .page {
-                max-width: 1000px;
+                max-width: 800px;
                 overflow: hidden;
                 margin: auto;
-                margin-top: 1vh;
                 background: white;
             }
             main {
@@ -172,6 +171,13 @@
             #back.display-back {
                 display: block;
             }
+            
+            @media only screen and (min-width: 820px) { .page { margin-top: 1vh; } } 
+            @media only screen and (min-width: 900px) { .page { margin-top: 2vh; } } 
+            @media only screen and (min-width: 1000px) { .page { margin-top: 4vh; } } 
+            @media only screen and (min-width: 1100px) { .page { margin-top: 8vh; } } 
+
+
         </style>
     </head>
     <body>
@@ -855,7 +861,7 @@
 
         // Update the time
         function putTime() {
-            const time = new Date().toTimeString();
+            const time = new Date().toTimeString().replace("+0000 (Greenwich Mean Time)", "");
             timeSlotNode.textContent = time;
         }
         setInterval(putTime, 200);
