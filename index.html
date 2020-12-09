@@ -32,16 +32,7 @@
                 font-size: 16px;
             }
 
-            body,
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            ol,
-            ul {
+            body, h1, h2, h3, h4, h5, h6, p, ol, ul {
                 margin: 0;
                 padding: 0;
                 font-weight: normal;
@@ -50,10 +41,8 @@
                 padding-bottom: 1em;
             }
             li {
-                /* list-style: none; */
                 margin-top: 0.5em;
             }
-
             .icons {
                 padding: 1em;
                 display: flex;
@@ -62,16 +51,15 @@
             a svg {
                 width: 3em;
             }
-
             body {
-                background-color: grey;
+                /* background-color: grey; */
                 overflow-y: scroll;
             }
             .page {
                 max-width: 800px;
                 overflow: hidden;
                 margin: auto;
-                background: white;
+                /* height: 2000px; */
             }
             main {
                 font-family: "vt323regular", monospace;
@@ -82,7 +70,7 @@
             .terminal {
                 padding: 0.25em;
                 color: var(--terminal-color);
-                background: #000000;
+                background: #0000009d;
                 line-height: 1.15em;
             }
 
@@ -125,7 +113,10 @@
                 margin-right: 0.5em;
                 margin-top: 0.5em;
             }
-
+            .icons {
+                border: 3px solid white;
+                background: white;
+            }
             h1,
             h2,
             h3 {
@@ -171,16 +162,26 @@
             #back.display-back {
                 display: block;
             }
-            
+
+            canvas{
+    			position: fixed;
+                left: 0px;
+                top: 0px;
+	    		z-index: -1;
+                margin-bottom: -100vh;
+		    }
+
             @media only screen and (min-width: 820px) { .page { margin-top: 1vh; } } 
             @media only screen and (min-width: 900px) { .page { margin-top: 2vh; } } 
             @media only screen and (min-width: 1000px) { .page { margin-top: 4vh; } } 
-            @media only screen and (min-width: 1100px) { .page { margin-top: 8vh; } } 
+            @media only screen and (min-width: 1100px) { .page { margin-top: 8vh; } }
+
+            /* Add big white bottom border to page and remove it here? */
 
 
         </style>
     </head>
-    <body>
+    <body class="screen">
         <div class="page">
             <main class="terminal">
                 <span>Roger Heathcote - Full Stack Developer</span><br />
@@ -264,42 +265,20 @@
                         <h2>Full Stack Developer - May to June 2020</h2>
                         <ul>
                             <li>
-                                QA / Testing lead in 4 person scrum team
-                                developing a simpler alternative to Anki for
-                                making and sharing flash cards. Final student
-                                project for Founders & Coders full stack web
-                                developer bootcamp.
+                                QA / Testing lead in 4 person scrum team developing a simpler alternative to Anki for making and sharing flash cards. Final student project for Founders & Coders full stack web developer bootcamp.
                             </li>
                             <li>
-                                Led on QA establishing clear standards for
-                                creation and maintenance of API documentation,
-                                ensuring availability of good examples for each
-                                type of test and consistent error handling with
-                                meaningful error messages very early in the
-                                project.
+                                Led on QA establishing clear standards for creation and maintenance of API documentation, ensuring availability of good examples for each type of test and consistent error handling with meaningful error messages very early in the project.
                             </li>
                             <li>
-                                Led on design of API and it's implementation
-                                using Node and Express. Wrote custom middleware
-                                to help with authentication and provide
-                                granular, secure error handling.
+                                Led on design of API and it's implementation using Node and Express. Wrote custom middleware to help with authentication and provide granular, secure error handling.
                             </li>
                             <li>
-                                Advocated for TDD and security, especially on
-                                the back end, ensuring protected routes were
-                                actually secure and testing was regarded as a
-                                first class citizen. Also pushed for model tests
-                                and Codecov to be incorporated into the CI/CD
-                                pipeline giving us over 85% code coverage on the
-                                back end and insight into the effect of each PR.
+                                Advocated for TDD and security, especially on the back end, ensuring protected routes were actually secure and testing was regarded as a first class citizen. Also pushed for model tests and Codecov to be incorporated into the CI/CD pipeline giving us over 85% code coverage on the back end and insight into the effect of each PR.
                             </li>
                             <li>
                                 <span class="tech"
-                                    >Made 2020 with Node, Express, Postgres,
-                                    Bcrypt, json-web-tokens, Jest, SuperTest,
-                                    React (with hooks), react-router,
-                                    rect-quill, styled-components, material-ui.
-                                    Numerous small React modules.
+                                    >Made 2020 with Node, Express, Postgres, Bcrypt, json-web-tokens, Jest, SuperTest, React (with hooks), styled-components, material-ui. Numerous small React modules e.g. router, quill.
                                 </span>
                             </li>
                             <li>
@@ -318,19 +297,10 @@
                         <h2>Domestic Engineer - Aug 2015 to Dec 2019</h2>
                         <ul>
                             <li>
-                                Primary carer for my two young daughters, and
-                                often two or three of their friends, with
-                                responsibility for the smooth running of a
-                                household of four.
+                                Primary carer for my two kids, and often two or three of their friends, with responsibility for the smooth running of a household of four.
                             </li>
                             <li>
-                                Extensive experience gained in precision
-                                logistics and stock control, PA & diary
-                                management, short order cheffing for a demanding
-                                clientelle (>8000 dishes served), laundry and
-                                wardrobe services, personal transport and
-                                security, management of multiple stakeholders
-                                with hetrogenous needs and priorities.
+                                Extensive experience gained in precision logistics and stock control, PA & diary management, short order cheffing for a demanding clientelle (>8000 dishes served), laundry and wardrobe services, personal transport and security, management of multiple stakeholders with hetrogenous needs and priorities.
                             </li>
                         </ul>
                     </article>
@@ -339,23 +309,16 @@
                         <h2>IT Consultant - 2005 to July 2015</h2>
                         <ul>
                             <li>
-                                Providing onsite and offsite IT and technical
-                                services to a diverse range of domestic, charity
-                                and business clients across North London.
+                                Providing onsite and offsite IT and technical services to a diverse range of domestic, charity and business clients across North London.
                             </li>
                             <li>
-                                Sole responsibility for the IT systems of dozens
-                                of small businesses and charities.
+                                Sole responsibility for the IT systems of dozens of small businesses and charities.
                             </li>
                             <li>
-                                Mix of commissioning, desktop and server
-                                support, data and database management, data
-                                recovery, hardware repair, bespoke programming,
-                                and website creation and maintenance.
+                                Mix of commissioning, desktop and server support, data and database management, data recovery, hardware repair, bespoke programming, and website creation and maintenance.
                             </li>
                             <li>
-                                Numerous scripts and several full applications
-                                created for internal business use.
+                                Numerous scripts and several full applications created for internal business use.
                             </li>
                             <li>
                                 <span class="tech"
@@ -434,51 +397,28 @@
                         <ul>
                             <li>
                                 <h2>Flexible working</h2>
-                                This counts for a lot. I have a young family and
-                                my wife has a career that often places harsh
-                                demands on her time so openness to working from
-                                home, compressed hours, part-time / 4DW etc is
-                                very welcome. In turn I can be flexible when the
-                                exigencies of business require it, assuming they
-                                don't require it every single week.
+                                This counts for a lot. I have a young family and my wife has a career that often places harsh demands on her time so openness to working from home, compressed hours, part-time / 4DW etc is very welcome. In turn I can be flexible when the exigencies of business require it, assuming they don't require it every single week.
                             </li>
                             <li>
                                 <h2>Personal development</h2>
-                                Opportunity to learn from my peers and seniors
-                                is a big part of what I want from any job.
-                                Consequently I really value positions that
-                                afford high-engagement with my peers and more
-                                senior colleagues, and mechanisms like pairing
-                                and code review. Also a culture that makes space
-                                for employees to explore new technologies and
-                                keep their skills up to date is a big draw.
+                                The opportunity to learn from my peers and seniors is a big part of what I want from any job. Consequently I really value positions that afford high-engagement with my peers and more senior colleagues, and mechanisms like pairing and code review. Also a culture that makes space for employees to explore new technologies and keep their skills up to date is a big draw.
                             </li>
                             <li>
                                 <h2>
                                     Healthy culture & good practice
                                 </h2>
-                                At a minimum any organization I would like to
-                                work with would get a decent score on the
-                                <a
-                                    href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/"
-                                    >classic Joel test</a
-                                >. A really great organization would score
-                                highly on
-                                <a
-                                    href="https://blog.pragmaticengineer.com/the-developer-culture-test/"
-                                    >this more modern Developer Culture Test
-                                    too</a
-                                >. In particular I would love to see a culture
-                                that values code quality, high engagement and
-                                energised working plus an open minded management
-                                with clarity of vision.
+                                At a minimum any organization I would like to work with would get a decent score on the
+                                <a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">
+                                    classic Joel test
+                                </a>
+                                . A really great organization would score highly on
+                                <a href="https://blog.pragmaticengineer.com/the-developer-culture-test/">
+                                    this more modern Developer Culture Test too
+                                </a>
+                                . In particular I would love to see a culture that values code quality, high engagement and energised working plus an open minded management with clarity of vision.
                             </li>
                             <li>
-                                <h2>Mission and purpose</h2>
-                                In an ideal world I would like to work on
-                                projects or products with a strong social
-                                purpose and/or projects that make significant
-                                contributions to open source projects.
+                                <h2>Mission and purpose</h2> In an ideal world I would like to work on projects or products with a strong social purpose and/or projects that make significant contributions to open source projects.
                             </li>
                         </ul>
                     </article>
@@ -490,64 +430,19 @@
                         <ul>
                             <li>
                                 <h3>Live music</h3>
-                                has always been a passion of mine. Until this
-                                Coronavirus thing I would always have tickets
-                                for some gig or other and I love dropping in on
-                                cheap random backroom gigs at places like the
-                                Shacklwell Arms and New River Studios of a
-                                weekend. As a teenager growing up in rural
-                                Lancashire I'd read the NME and Melody Maker and
-                                be thrilled to find that a band I was into was
-                                on tour, and then invariably disappointed to
-                                find their only UK date was in London. The
-                                solution was obvious. I moved to London. Ready
-                                access to almost all the world's music is still
-                                a large part of what keeps me here now, despite
-                                the pollution and cost.
+                                has always been a passion of mine. Until this Coronavirus thing I would always have tickets for something or be up for a random dingy backroom gig.
                             </li>
                             <li>
                                 <h3>Making music</h3>
-                                is something I've always been involved in too.
-                                Before my infatuation with computers and coding
-                                began as a teenager I was obsessed with music
-                                tech, and in particular recording studios with
-                                their 19" racks packed full of mysterious
-                                glowing outboard equipment, luxurious leather
-                                and walnut clad mixing desks, 2" reel to reel
-                                multitracks, libraries of exotic microhones and
-                                enormous in-wall speakers. Not so long after
-                                that I picked up the guitar and formed / joined
-                                a series of bands, first rock, then electronic,
-                                none famous. Some time later I started picking
-                                up sound engineering work and did a bit of
-                                touring, again with nobody famous. For a year or
-                                two in the early noughties I ran a studio for a
-                                streaming radio station. We sometimes had more
-                                people in the studio than we had listeners but
-                                it was fun. Later in life I discovered a deep
-                                and abiding love of Karaoke and to this day I
-                                produce recordings for myself and others in my
-                                home studio (aka my lounge).
+                                is something I've always been involved in too. Before my infatuation with computers and coding began as a teenager I was obsessed with music tech, and in particular recording studios. Later in life I discovered a deep and abiding love of Karaoke and to this day I produce recordings for myself and others in my home studio (aka my lounge).
                             </li>
                             <li>
                                 <h3>Computer history</h3>
-                                is another obsession of mine. I never tire of
-                                reading about the work and lives of the early
-                                computer pioneers who accomplished so much,
-                                generally under incredible constraints.
+                                is another obsession of mine. I never tire of reading about the work and lives of the early computer pioneers who accomplished so much, often under incredible constraints.
                             </li>
                             <li>
                                 <h3>Vintage cinema.</h3>
-                                Primarily 1960s to 1980s with a strong leaning
-                                towards Horror, Sci-fi, Giallo, budget thrillers
-                                and VHS Trash but also the works of the English
-                                eccentrics like Russel, Boorman and the American
-                                mavens like Coppola and Kubrick. Given the
-                                opportunity, my idea of a great weekend would be
-                                binge watching a dozen or more of these kinds of
-                                movie back to back. Of course as a family man
-                                you are more likely to find us watching Pixar
-                                films most days so there tends to be a backlog.
+                                Primarily 1960s to 1980s with a strong leaning towards Horror, Sci-fi, budget thrillers and VHS Trash. My watchlist runneth over but, of course, as a family man you are more likely to find me watching Pixar films these days so there tends to be a backlog.
                             </li>
                         </ul>
                     </article>
@@ -559,7 +454,7 @@
                     e: portfolio [at] technicalbloke [dot] com<br />
                     <br />
                     If it's anything at all time sensitive please give me a
-                    call. I don't always do email & text in the daytime and I
+                    call. I don't always notice email & text in the daytime and I
                     generally prefer talking to writing.<br />
                     <br />
                 </section>
@@ -576,23 +471,12 @@
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594930817/portfolio-site/even_smaller_prepareme_k1oerh.gif"
                             />
                             <h2>Prepareme.ie Story Builder</h2>
-                            <span
-                                >Story Builder is an early stage SPA that that
-                                helps carers of people with additional needs
-                                (autism / non-verbal / severe anxiety) create
-                                visual aids and resources on the go. Pre-made
-                                templates, google image search and cropping
-                                eliminate the need to manually download images,
-                                edit them and arrange them in Word, saving
-                                precious hours and improving quality of
-                                care.</span
-                            >
-                            <span class="tech"
-                                >Made 2020 with React (with hooks),
-                                react-router, styled-components, material-ui,
-                                google-custom-search, cloudinary, netlify,
-                                react-pdf, cypress.</span
-                            >
+                            <span>
+                                Story Builder is an early stage SPA that that helps carers of people with additional needs (autism / non-verbal / severe anxiety) create visual aids and resources on the go. Pre-made templates, google image search and cropping eliminate the need to manually download images, edit them and arrange them in Word, saving precious hours and improving quality of care.
+                            </span>
+                            <span class="tech">
+                                Made 2020 with React (with hooks), react-router, styled-components, material-ui, google-custom-search, cloudinary, netlify, react-pdf, cypress.
+                            </span>
                         </a>
                     </article>
 
@@ -607,16 +491,12 @@
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594931441/portfolio-site/very_small_recorda_lci1lm.gif"
                             />
                             <h2>Recorda</h2>
-                            <span
-                                >Real time web based buffering audio recorder
-                                and clip extractor. Recorda allows you to buffer
-                                up to 2 hours of live audio but only save the
-                                bits you need - after you've heard them.</span
-                            >
-                            <span class="tech"
-                                >Made 2016-Date with Vanilla ES6 Javascript +
-                                CSS3 + HTML5 WebAudio API + Webpack</span
-                            >
+                            <span>
+                                Real time web based buffering audio recorder and clip extractor. Recorda allows you to buffer up to 2 hours of live audio but only save the bits you need - after you've heard them.
+                            </span>
+                            <span class="tech">
+                                Made 2016-Date with Vanilla ES6 Javascript + CSS3 + HTML5 WebAudio API + Webpack
+                            </span>
                         </a>
                     </article>
 
@@ -631,14 +511,12 @@
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594227098/portfolio-site/cmlsupport-smaller_clczud.gif"
                             />
                             <h2>CMLSupport.org.uk</h2>
-                            <span
-                                >Website for Chronic Myeloid Leukemia support
-                                group including customised user forum.</span
-                            >
-                            <span class="tech"
-                                >Made 2006-2015 with Drupal, HTML, CSS, custom
-                                PHP</span
-                            >
+                            <span>
+                                Website for Chronic Myeloid Leukemia support group including customised user forum.
+                            </span>
+                            <span class="tech">
+                                Made 2006-2015 with Drupal, HTML, CSS, custom PHP
+                            </span>
                         </a>
                     </article>
 
@@ -653,14 +531,12 @@
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594931681/portfolio-site/very_small_skulldisco_wr4asp.gif"
                             />
                             <h2>SkullDisco.com</h2>
-                            <span
-                                >Website for renowned UK record label Skull
-                                Disco including online merch and record
-                                shop.</span
-                            >
-                            <span class="tech"
-                                >Made 2007-2012 with Drupal, HTML & CSS.</span
-                            >
+                            <span>
+                                Website for renowned UK record label Skull Disco including online merch and record shop.
+                            </span>
+                            <span class="tech">
+                                Made 2007-2012 with Drupal, HTML & CSS.
+                            </span>
                         </a>
                     </article>
 
@@ -675,14 +551,12 @@
                                 src="https://res.cloudinary.com/didur5psx/image/upload/v1594221667/portfolio-site/instrumentswap2-smaller_eomfyu.gif"
                             />
                             <h2>InstrumentSwap.co.uk</h2>
-                            <span
-                                >Bespoke music gear trading website. 100% hand
-                                rolled content management system with front end
-                                message board, comprehensive search options,
-                                moderator backend & comprehensive anti-spam
-                                measures.</span
-                            >
-                            <span class="tech">Made 2009-2011 with PHP5</span>
+                            <span>
+                                Bespoke music gear trading website. 100% hand rolled content management system with front end message board, comprehensive search options, moderator backend & comprehensive anti-spam measures.
+                            </span>
+                            <span class="tech">
+                                Made 2009-2011 with PHP5
+                            </span>
                         </a>
                     </article>
 
@@ -692,16 +566,12 @@
                             src="https://res.cloudinary.com/didur5psx/image/upload/v1594635824/portfolio-site/tblogo_pb4n3k.jpg"
                         />
                         <h2>Techbench</h2>
-                        <span
-                            >Custom linux live CD for backing up / rescuing and
-                            restoring customer data over Ethernet at both block
-                            and filesystem level. Created for internal business
-                            use.
+                        <span>
+                            Custom linux live CD for backing up / rescuing and restoring customer data over Ethernet at both block and filesystem level. Created for internal business use.
                         </span>
-                        <span class="tech"
-                            >Made 2009-2015 with Linux, Python, TCP & UDP
-                            Sockets, Bash, NBD, Rsync, DDrescue</span
-                        >
+                        <span class="tech">
+                            Made 2009-2015 with Linux, Python, TCP & UDP, Sockets, Bash, NBD, Rsync, Gnu-ddrescue
+                        </span>
                     </article>
 
                     <article class="thing">
@@ -710,16 +580,12 @@
                             src="https://res.cloudinary.com/didur5psx/image/upload/v1594635824/portfolio-site/tblogo_pb4n3k.jpg"
                         />
                         <h2>TBCRM</h2>
-                        <span
-                            >Custom CRM system for managing customer and system
-                            information for quick recall. Included VOIP phone
-                            and Android integration. Created for internal
-                            business use.</span
-                        >
-                        <span class="tech"
-                            >Made 2013-2015 with Python, HTML, CSS, Javascript,
-                            Java, Android, SQLITE, MySQL</span
-                        >
+                        <span>
+                            Custom CRM system for managing customer and system information for quick recall. Included VOIP phone and Android integration. Created for internal business use.
+                        </span>
+                        <span class="tech">
+                            Made 2013-2015 with Python, HTML, CSS, Javascript, Java, Android, SQLITE, MySQL
+                        </span>
                     </article>
 
                     <article class="thing">
@@ -728,11 +594,9 @@
                             src="https://res.cloudinary.com/didur5psx/image/upload/v1594635824/portfolio-site/tblogo_pb4n3k.jpg"
                         />
                         <h2>SSH DB backup</h2>
-                        <span
-                            >Graphical utility to automatically back up
-                            customers databases and monitor status of backups
-                            via ssh. Created for internal business use.</span
-                        >
+                        <span>
+                            Graphical utility to automatically back up customers databases and monitor status of backups via ssh. Created for internal business use.
+                        </span>
                         <span class="tech"
                             >Made 2013 with Python, WX-Widgets</span
                         >
@@ -963,5 +827,130 @@
             displayScreen(link);
             unhideCommandLine();
         }, 750);
+    </script>
+
+
+    <script type="module">
+        // Backdrop
+        // Backdrop
+        // Backdrop
+        import * as THREE from 'https://unpkg.com/three@0.123.0/build/three.module.js';
+
+        let randIntRange = (start, end) => (Math.ceil((Math.random() * (end-start)))+start)
+
+        function onWindowResize(){
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight )
+        }
+
+        const rootElem = document.querySelector("body")
+
+        // Scene
+        const NEAR = 0.2
+        const FAR = 95
+        const FG_COL = 0x00ff00
+        const BG_COL = 0x361424
+        const scene = new THREE.Scene()
+        scene.background = new THREE.Color( BG_COL )
+        scene.fog = new THREE.Fog( BG_COL, NEAR, FAR )
+      
+        // Renderer
+        const renderer = new THREE.WebGLRenderer( { antialias: true } )
+        renderer.setPixelRatio( window.devicePixelRatio )
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        rootElem.appendChild(renderer.domElement)
+        window.addEventListener( 'resize', onWindowResize, false );
+
+        // Camera
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, NEAR, FAR)
+        camera.position.y = 2.5 // Also added at 0,0,0 by default so moved away by 5 units
+        camera.position.z = 0 // Also added at 0,0,0 by default so moved away by 5 units
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+                
+        // OBJECTS
+        // OBJECTS
+        // OBJECTS
+        
+        // GRID
+        const size = 100;
+        const divisions = 100;
+        const gridHelper = new THREE.GridHelper( size, divisions, FG_COL, FG_COL );
+        scene.add( gridHelper );
+
+        // RECTANGLES
+        const rects = []
+        const _ = [... Array(200)].map(()=>{
+
+            const dist = randIntRange(FAR,FAR*2)
+            const xTrans = randIntRange(-4*(dist/3)/3,4*(dist/3)/3)
+            const yTrans = randIntRange(2,2*(dist/3)/4)
+            if(xTrans < 3 && xTrans > -3 && yTrans < 5) return (console.log("Skipped one"))
+
+            // console.log("Making rects")
+            const boxGeometry = new THREE.BoxGeometry(
+                randIntRange(10,50) / 15,
+                randIntRange(10,50) / 15,
+                randIntRange(10,30) / 15
+            )
+            boxGeometry.center()
+            
+            // const boxMaterial = new THREE.MeshPhongMaterial({
+            const boxMaterial = new THREE.MeshBasicMaterial({
+                color: 0x111111,
+                polygonOffset: true,
+                polygonOffsetFactor: 1, // positive value pushes polygon further away
+                polygonOffsetUnits: 1
+            })
+            const cube = new THREE.Mesh( boxGeometry, boxMaterial )
+
+            // const lineColor = new THREE.Color(`hsl(${randIntRange(0,359)}, 100%, 50%)`)
+            const lineColor = FG_COL
+
+            var geo = new THREE.EdgesGeometry( cube.geometry ); // or WireframeGeometry
+            var mat = new THREE.LineBasicMaterial( { color: lineColor  } );
+            // var mat = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+            var wireframe = new THREE.LineSegments( geo, mat );
+            cube.add( wireframe );
+
+            // Move them about
+            // const dist = randIntRange(5,FAR)
+            cube.translateZ(-dist)
+            cube.translateX(xTrans) // -60 / +60
+            cube.translateY(yTrans) // +2 / +30
+            // console.log("POSITION", cube.position.x)
+
+            cube.rotation.x = Math.PI * randIntRange(10,50) / 10 
+            cube.rotation.y = Math.PI * randIntRange(10,50) / 10 
+            cube.rotation.z = Math.PI * randIntRange(10,50) / 10 
+
+            rects.push({
+                object: cube,
+                xRot: randIntRange(-20,20) / 500,
+                yRot: randIntRange(-20,20) / 500,
+                zRot: randIntRange(-20,20) / 500,
+                zSpeed: randIntRange(1,50) / 100
+            })
+            scene.add(cube)
+
+        })
+
+        function animate() {
+            requestAnimationFrame( animate );
+
+            rects.forEach(rect=>{
+                rect.object.rotation.x = rect.object.rotation.x + rect.xRot
+                rect.object.rotation.y = rect.object.rotation.y + rect.yRot
+                // rect.object.rotation.z = rect.object.rotation.z + rect.zRot
+
+                rect.object.position.z = rect.object.position.z + rect.zSpeed
+                if(rect.object.position.z > -1) rect.object.position.z = -FAR
+            })
+
+            renderer.render( scene, camera );
+        }
+        animate();
+
     </script>
 </html>
