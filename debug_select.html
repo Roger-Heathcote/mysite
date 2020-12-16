@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		select {
+			padding: 0.25em 0 0 0.45em;
+			font-size: 0.7em;
+			font-weight: bold;
+			border: none;
+			/* border: 1px solid yellow; */
+			max-width: 1.5em;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-overflow: '';
+			appearance: none;
+			background: transparent;
+			color: var(--terminal-color);
+		}
+		select option:first-child {
+			display: none;
+		}	
+	</style>
+
+</head>
+<body>
+	<select name="theme" id="themeSelector">
+		<option selected>&#9776;</option>
+		<option>Battlezone</option>
+		<option>Red Dawn</option>
+		<option>Tron</option>
+		<option>Vaporwave</option>
+	</select>
+	<script>
+		function handleClicks(event) {
+			if (event.target.tagName === "SELECT") {
+				const theme = event.target.value
+				const themeSelector = document.getElementById("themeSelector")
+				themeSelector.selectedIndex = 0
+				console.log(theme)
+			}
+            }
+            window.addEventListener("click", handleClicks);
+	</script>
+</body>
+
+</html>
+
+
