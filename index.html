@@ -20,16 +20,19 @@
 
                 <div class="header">
 
-                    <select name="theme" id="themeSelector">
+                    <select name="theme" id="themeSelector" tabindex="2">
                         <option selected>&#9776;</option>
                         <option>Battlezone</option>
                         <option>Red Dawn</option>
                         <option>Tron</option>
                         <option>Vaporwave</option>
-                    </select>
+                        <option>Mono</option>
+                        <option>Low Contrast</option>
+                        <option>High Contrast</option>
+                    </select>  
 
                     <span>
-                        <a id="homeLink" aria-label="Home" href="#main">
+                        <a id="homeLink" aria-label="Home" href="#main" tabindex="1">
                             <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 463.89 438.88" version="1.0">
                             <g id="layer1" transform="translate(-42.339 -276.34)">
                                 <path id="rect2391" d="m437.15 499.44zl-162.82-144.19-162.9 144.25v206.12c0 5.33 4.3 9.6 9.62 9.6h101.81v-90.38c0-5.32 4.27-9.62 9.6-9.62h83.65c5.33 0 9.6 4.3 9.6 9.62v90.38h101.84c5.32 0 9.6-4.27 9.6-9.6v-206.18zm-325.72 0.06z"/>
@@ -40,7 +43,9 @@
                         </a>
                         Roger Heathcote
                     </span>
-                    <span class="hyphenate">Full Stack Developer</span><br />
+                    <span class="hyphenate">Full Stack Developer</span>
+                    
+                    <br />
                     <div class="optional">
                         <span>rh-ux v0.16</span> <span class="hyphenate time-slot"></span>
                         <br />
@@ -56,7 +61,7 @@
                     <br />
                     <a href="#made">1) Some things I made</a><br />
                     <a href="#jobs">2) Jobs I've done</a><br />
-                    <a href="#know">3) Stuff I know about</a><br />
+                    <a href="#know">3) What I know about</a><br />
                     <a href="#employers">4) What I value in an employer</a
                     ><br />
                     <a href="#interests">5) My wider interests</a><br />
@@ -476,14 +481,14 @@
                 </div>
             </main>
 
-            <!-- Github -->
             <nav class="icons">
                 <a
-                    target="_blank"
-                    href="https://github.com/Roger-Heathcote"
-                    rel="noopener"
-                    aria-label="Roger Heathcote's Github profile"
+                target="_blank"
+                href="https://github.com/Roger-Heathcote"
+                rel="noopener"
+                aria-label="Roger Heathcote's Github profile"
                 >
+                    <!-- Github -->
                     <svg
                         class="icon icon_gh"
                         role="img"
@@ -589,6 +594,7 @@
                 "Battlezone": {
                     themeName: "Battlezone",
                     term: "#00FF00",
+                    bar: "#00cc00cc",
                     gr: 0x009900,
                     fg: 0x001100,
                     hl: 0x00ff00,
@@ -596,6 +602,7 @@
                 "Red Dawn": {
                     themeName: "Red Dawn",
                     term: "#FF2222",
+                    bar: "#aa0000",
                     gr: 0xcc0000,
                     fg: 0xaa0000,
                     hl: 0xff0000,
@@ -612,11 +619,43 @@
                 "Tron": {
                     themeName: "Tron",
                     term: "#ffff00",
+                    icons: "#ffff0088",
+                    bar: "#171f41aa",
                     bg: 0x000000,
                     gr: 0xffffff,
                     fg: 0x171f41,
                     hl: 0xffffff,
                     pl: 0x171f41
+                },
+                "High Contrast": {
+                    themeName: "High Contrast",
+                    term: "#ffff33",
+                    bg: 0x333333,
+                    gr: 0x555533,
+                    fg: 0x333333,
+                    hl: 0x555533,
+                    pl: 0x333333
+                },
+                "Low Contrast": {
+                    themeName: "Low Contrast",
+                    term: "#666666",
+                    icons: "#666666",
+                    bar: "#333333",
+                    bg: 0x666666,
+                    gr: 0x666666,
+                    fg: 0x666666,
+                    hl: 0x666666,
+                    pl: 0x666666
+                },
+                "Mono": {
+                    themeName: "Mono",
+                    term: "#cccccc",
+                    bar: "#ffffff22",
+                    bg: 0x222222,
+                    gr: 0x333333,
+                    fg: 0xbbbbbb,
+                    hl: 0xffffff,
+                    pl: 0xbbbbbb
                 },
 
             }
@@ -635,12 +674,15 @@
             })
 
             window.addEventListener("keydown", handleKeys);
-            window.addEventListener("click", handleClicks);
             window.addEventListener("popstate", event => {
                 event.preventDefault();
                 internalHistory.pop();
                 internalHistory.length === 0 ? history.back() : history.go(0);
             });
+            const allLinks = document.querySelectorAll('a')
+            allLinks.forEach( (link)=> {
+                link.addEventListener("click", linkClickHandler)
+            } )
 
             // If URL contains an internal link then go to that, otherwise show the main screen
             const link = internalLink(window.location.href) || "main";
@@ -667,52 +709,49 @@
 
             // Update the time
             function putTime() {
-                const time = new Date().toTimeString().replace("+0000 (Greenwich Mean Time)", "");
-                timeSlotNode.textContent = time;
+                const time = new Date().toTimeString().replace("+0000 (Greenwich Mean Time)", "")
+                timeSlotNode.textContent = time
             }
 
             // Blink the cursor
             function blinkCursor() {
-                cursorNode.classList.toggle("hide");
+                cursorNode.classList.toggle("hide")
             }
 
             // Spin the spinner
             function spinSpinner() {
-                spinnerNode.textContent = spinnerNext[spinnerNode.textContent];
+                spinnerNode.textContent = spinnerNext[spinnerNode.textContent]
             }
 
             // Check if a link is within this page or not
             function internalLink(url) {
-                const match = url.match(/#([a-zA-Z0-9_]{1,20})/);
-                return match && match[1];
+                const match = url.match(/#([a-zA-Z0-9_]{1,20})/)
+                return match && match[1]
             }
 
             function unhideCommandLine() {
-                const elem = document.getElementById("commandLineBox");
+                const elem = document.getElementById("commandLineBox")
                 elem.removeAttribute("hidden");
             }
 
             function displayBack(yes) {
-                if (yes) {
-                    displayBackNode.classList.add("display-back");
-                } else {
-                    displayBackNode.classList.remove("display-back");
-                }
+                if (yes) return displayBackNode.classList.add("display-back")
+                displayBackNode.classList.remove("display-back")
             }
 
             // Display the screen with the specified class name
             function displayScreen(pageClass) {
-                displayBack(pageClass !== "main");
-                const nextScreen = document.querySelector(`.${pageClass}`);
-                history.pushState(null, null, `/#${pageClass}`);
+                displayBack(pageClass !== "main")
+                const nextScreen = document.querySelector(`.${pageClass}`)
+                history.pushState(null, null, `/#${pageClass}`)
                 if (nextScreen) {
-                    internalHistory.push(1);
+                    internalHistory.push(1)
                     const screens = document.querySelectorAll(".terminal section");
                     screens.forEach(screen => screen.classList.remove("active"));
-                    nextScreen.classList.add("active");
+                    nextScreen.classList.add("active")
                     highlightIndex = 0;
                 } else {
-                    displayScreen("main");
+                    displayScreen("main")
                 }
                 resizer()
             }
@@ -739,25 +778,21 @@
                 } else {
                     if (event.key === "Backspace" && cmdLine.length > 0)
                         cmdLine.pop();
-                    if (event.key === "Tab") highlight();
+                    // if (event.key === "Tab"          ) highlight()
                     if (event.key === "Enter")
-                        execute(cmdLine.join("").toUpperCase());
+                        execute(cmdLine.join("").toUpperCase())
                 }
-                cmdLineNode.textContent = "> " + cmdLine.join("");
+                cmdLineNode.textContent = "> " + cmdLine.join("")
             }
 
-            function handleClicks(event) {
-                console.log(event.target.tagName, event.target.value);
-                if (event.target.tagName === "A") {
-                    console.log("A CLICK")
-                    if (internalLink(event.target.href)) {
-                        console.log("AN INTERNAL LINK!")
-                        event.preventDefault();
-                        displayScreen(internalLink(event.target.href));
-                    } else {
-                        console.log("AN EXTERNAL LINK! - Wut!")
-                        event.preventDefault();
-                    }
+            // Catch internal links and change "screen" accordingly
+            function linkClickHandler(event){
+                console.log(event.currentTarget.tagName);
+                console.log(event.currentTarget.value);
+                console.log(event.currentTarget.href)
+                if (internalLink(event.currentTarget.href)) {
+                    event.preventDefault()
+                    displayScreen(internalLink(event.currentTarget.href))
                 }
             }
 
@@ -767,12 +802,14 @@
                 const theme = themes[themeName]
                 let root = document.documentElement;
                 root.style.setProperty('--terminal-color',theme.term)
+                root.style.setProperty('--icon-color', theme.icons || "")
+                root.style.setProperty('--icon-bar-color', theme.bar || "")
                 console.log("THEME OBJECT:", theme)
                 changeCols(theme)
             }
 
+            // If content smaller than screen height expand so icon bar at bottom
             function resizer(){
-            // If content smaller than height expand so icon bar at bottom
                 if(window.innerWidth<800 && (page.scrollHeight <= window.innerHeight)){
                         page.style.height = `${window.innerHeight}px`
                 } else {

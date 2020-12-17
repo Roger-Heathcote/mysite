@@ -7,10 +7,14 @@
 	font-style: normal;
 }
 
+/* Basic CSS reset & vars */
+
 :root {
 	margin: 0px;
 	padding: 0px;
 	--terminal-color: #66ff66;
+	--icon-color: #000000;
+	--icon-bar-color: #ffffff;
 }
 
 html {
@@ -24,146 +28,28 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 	font-weight: normal;
 	height: 100%;
 }
-ul {
-	padding-bottom: 1em;
-}
-li {
-	margin-top: 0.5em;
-}
 
-.header span {
-	/* color: white; */
-	white-space: nowrap;
-}
-.hyphenate::before{
-	content: "- ";
-}
-.icons {
-	padding: 1em;
-	display: flex;
-	justify-content: space-around;
-	/* border-bottom: 1000px; */
-}
-.icons > a svg {
-	width: 3em;
-}
-body {
-	/* background-color: grey; */
-	overflow-y: scroll;
-}
-.page {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	max-width: 800px;
-	overflow: hidden;
-	margin: auto;
-	/* border: 5px solid yellow; */
-	/* height: 80vh; */
-}
-main {
-	font-family: "vt323regular", monospace;
-	/* font-family: "VT323", monospace; */
-	font-size: 2rem;
-}
+/* Single element selector rules */
 
-.terminal {
-	flex: 1;
-	padding: 0.25em;
-	color: var(--terminal-color);
-	background: #0000009d;
-	line-height: 1.15em;
+a {
+	color: inherit;
 }
-
-.command-line {
-	min-height: 1em;
-}
-
-.hide {
-	visibility: hidden;
-}
-
-.tech {
-	color: white;
-}
-
-/* Microclearfix "hack" to ensure images don't overflow articles if there is not much text */
-article:before,
-article:after {
-	content: " ";
-	display: table;
-}
-article:after {
-	clear: both;
-}
-
 article {
 	margin-top: 1em;
 }
 article + article {
 	margin-top: 2em;
 }
-
-.thing {
-	clear: left;
+article:before, article:after { /* Microclearfix "hack" to ensure images don't overflow articles if there is not much text */
+	content: " ";
+	display: table;
 }
-
-.thing img {
-	width: 20%;
-	float: left;
-	margin-right: 0.5em;
-	margin-top: 0.5em;
+article:after {
+	clear: both;
 }
-.icons {
-	/* border: 3px solid white; */
-	/* border-top: 2vh solid white;
-	border-bottom: 2vh solid white; */
-	background: white;
+body {
+	overflow-y: scroll;
 }
-h1,
-h2,
-h3 {
-	color: white;
-}
-
-h3 {
-	display: inline;
-}
-.terminal section {
-	display: none;
-}
-
-.terminal section.active {
-	display: block;
-}
-
-a {
-	color: inherit;
-}
-
-.main a {
-	text-decoration: none;
-}
-
-.thing a {
-	text-decoration: none;
-}
-.thing a:hover {
-	background: rgb(9, 44, 11);
-	text-decoration: none;
-}
-
-.main a:hover {
-	color: white;
-}
-
-#back {
-	display: none;
-}
-#back.display-back {
-	display: block;
-}
-
 canvas{
 	position: fixed;
 	left: 0px;
@@ -171,12 +57,28 @@ canvas{
 	z-index: -1;
 	margin-bottom: -100vh;
 }
+h1, h2, h3 {
+	color: white;
+}
+h3 {
+	display: inline;
+}
+li {
+	margin-top: 0.5em;
+}
+main {
+	font-family: "vt323regular", monospace;
+	font-size: 2rem;
+}
+option {
+	/* color: red; */
+	background: black;
+}
 select {
 	padding: 0.25em 0 0 0.45em;
 	font-size: 0.7em;
 	font-weight: bold;
 	border: none;
-	/* border: 1px solid yellow; */
 	max-width: 1.5em;
 	-webkit-appearance: none;
     -moz-appearance: none;
@@ -185,12 +87,96 @@ select {
 	background: transparent;
 	color: var(--terminal-color);
 }
-option {
-	color: red;
-	background: transparent;
-}
 select option:first-child {
 	display: none;
+}
+ul {
+	padding-bottom: 1em;
+}
+
+
+/* Class based selector rules */
+
+.command-line {
+	min-height: 1em;
+}
+.header span {
+	white-space: nowrap;
+}
+.hide {
+	visibility: hidden;
+}
+.hyphenate::before{
+	content: "- ";
+}
+.icons {
+	background: var(--icon-bar-color);
+	padding: 1em;
+	display: flex;
+	justify-content: space-around;
+}
+.icons > a svg {
+	width: 3em;
+	fill: var(--icon-color);
+}
+.icons > a svg:hover {
+	fill: var(--terminal-color);
+	filter: drop-shadow(2px 2px 1px black);
+}
+.main a {
+	text-decoration: none;
+}
+.main a:hover {
+	color: white;
+}
+.page {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 800px;
+	overflow: hidden;
+	margin: auto;
+}
+.tech {
+	color: white;
+}
+.terminal {
+	flex: 1;
+	padding: 0.25em;
+	color: var(--terminal-color);
+	background: #0000009d;
+	line-height: 1.15em;
+}
+.terminal section {
+	display: none;
+}
+.terminal section.active {
+	display: block;
+}
+.thing {
+	clear: left;
+}
+.thing img {
+	width: 20%;
+	float: left;
+	margin-right: 0.5em;
+	margin-top: 0.5em;
+}
+.thing a {
+	text-decoration: none;
+}
+.thing a:hover {
+	background: rgb(9, 44, 11);
+	text-decoration: none;
+}
+
+/* Id based selector rules */
+
+#back {
+	display: none;
+}
+#back.display-back {
+	display: block;
 }
 #homeLink {
 	text-decoration: none;
@@ -199,11 +185,11 @@ select option:first-child {
 	width: 0.6em;
 	fill: var(--terminal-color);
 }
-
 #themeSelector{
 	float: right;
-	/* border: 5px solid red; */
 }
+
+/* Media queries */
 
 @media only screen and (max-width: 350px) {
 	.thing img {
@@ -213,7 +199,6 @@ select option:first-child {
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 600px) {
 	.header span:nth-of-type(1) {
 		display: block;
@@ -224,5 +209,3 @@ select option:first-child {
 @media only screen and (min-width: 900px) { .page { margin-top: 2vh; } }
 @media only screen and (min-width: 1000px) { .page { margin-top: 4vh; } }
 @media only screen and (min-width: 1100px) { .page { margin-top: 8vh; } }
-
-
