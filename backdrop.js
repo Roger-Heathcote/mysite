@@ -1,7 +1,4 @@
 import * as THREE from 'https://unpkg.com/three@0.123.0/build/three.module.js';
-// import { THREE.EffectComposer } from 'https://unpkg.com/three@0.123.0/examples/js/postprocessing/BloomPass.js';
-// import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { EffectComposer } from 'https://unpkg.com/three@0.123.0/examples/jsm/postprocessing/EffectComposer.js';
 
 function randIntRange(start, end) {
 	return (Math.ceil((Math.random() * (end-start)))+start)
@@ -13,16 +10,8 @@ function onWindowResize(){
 	renderer.setSize( window.innerWidth, window.innerHeight )
 }
 
-function everyXFrames(callback, x=1){
-	if(!x) callback()
-	requestAnimationFrame( ()=>{
-		everyXFrames(callback, x-1)
-	})
-}
-
 function animate() {
 	requestAnimationFrame(animate)
-	// everyXFrames(animate, 1)
 	rects.forEach(rect=>{
 		rect.object.rotation.x = rect.object.rotation.x + rect.xRot
 		rect.object.rotation.y = rect.object.rotation.y + rect.yRot
@@ -38,19 +27,11 @@ function animate() {
 // CHANGE COLORS
 // CHANGE COLORS
 export function changeCols({themeName, bg, gr, fg, hl, pl}){
-	console.log("Changing to theme:", themeName)
-
-	console.log(gr.toString(16))
-
 	rects.forEach(rect=>{
 		rect.object.material.color.setHex(fg || 0x000000)
 		rect.wireframe.material.color.setHex(hl || 0x000000)
 	})
-
-	// theGrid.material.color.setHex(gr)
-	// theGrid.material.color.setHex(0xffffff)
 	theGrid.material.color.setHex(gr)
-	// theGrid.material.color.setHex(gr || 0x000000)
 	centerLine.material.color.setHex(gr || 0x000000)
 	scene.background = new THREE.Color( bg || 0x000000 )
 	scene.fog = new THREE.Fog( bg || 0x000000, NEAR, FAR )

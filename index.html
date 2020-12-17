@@ -29,7 +29,7 @@
                     </select>
 
                     <span>
-                        <a id="homeLink" aria-label="Home" href="/">
+                        <a id="homeLink" aria-label="Home" href="#main">
                             <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 463.89 438.88" version="1.0">
                             <g id="layer1" transform="translate(-42.339 -276.34)">
                                 <path id="rect2391" d="m437.15 499.44zl-162.82-144.19-162.9 144.25v206.12c0 5.33 4.3 9.6 9.62 9.6h101.81v-90.38c0-5.32 4.27-9.62 9.6-9.62h83.65c5.33 0 9.6 4.3 9.6 9.62v90.38h101.84c5.32 0 9.6-4.27 9.6-9.6v-206.18zm-325.72 0.06z"/>
@@ -604,20 +604,18 @@
                     themeName: "Vaporwave",
                     term: "#00FFFF",
                     gr: 0xff6ec7,
-                    fg: 0x000000,
-                    hl: 0x00ffff,
-                    pl: 0x000001,
-                    bg: 0xff9f00,
-                    // bg: 0xff6ec7,
-                    // bg: 0xfffb96,
+                    fg: 0x00ffff,
+                    hl: 0xff9f00,
+                    pl: 0x000000,
+                    bg: 0x000000,
                 },
                 "Tron": {
                     themeName: "Tron",
                     term: "#ffff00",
                     bg: 0x000000,
                     gr: 0xffffff,
-                    fg: 0x000044,
-                    hl: 0xff0000,
+                    fg: 0x171f41,
+                    hl: 0xffffff,
                     pl: 0x171f41
                 },
 
@@ -660,6 +658,8 @@
                 displayScreen(link);
                 unhideCommandLine();
             }, 750);
+
+            setTheme("Battlezone")
 
             // FUNCTIONS
             // FUNCTIONS
@@ -749,9 +749,14 @@
             function handleClicks(event) {
                 // console.log(event.target.tagName, event.target.value);
                 if (event.target.tagName === "A") {
+                    console.log("A CLICK")
                     if (internalLink(event.target.href)) {
+                        console.log("AN INTERNAL LINK!")
                         event.preventDefault();
                         displayScreen(internalLink(event.target.href));
+                    } else {
+                        console.log("AN EXTERNAL LINK! - Wut!")
+                        event.preventDefault();
                     }
                 }
             }
