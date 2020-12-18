@@ -100,6 +100,17 @@ ul {
 .command-line {
 	min-height: 1em;
 }
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.header div:first-child {
+	flex: 1;
+}
+.header select {
+	float: right;
+}
 .header span {
 	white-space: nowrap;
 }
@@ -185,9 +196,9 @@ ul {
 	width: 0.6em;
 	fill: var(--terminal-color);
 }
-#themeSelector{
+/* #themeSelector{
 	float: right;
-}
+} */
 
 /* Media queries */
 
