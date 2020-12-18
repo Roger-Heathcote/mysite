@@ -75,17 +75,18 @@ option {
 	background: black;
 }
 select {
-	padding: 0.25em 0 0 0.45em;
-	font-size: 0.7em;
-	font-weight: bold;
-	border: none;
-	max-width: 1.5em;
-	-webkit-appearance: none;
-    -moz-appearance: none;
-	text-overflow: '';
+	padding: 0 0 0 0.25em;
+	font: inherit;
+	border: 1px solid #00ffff77;
+	border-radius: 0.25em;
+	max-width: 3.25em;
 	appearance: none;
 	background: transparent;
 	color: var(--terminal-color);
+	opacity: 65%;
+}
+select:hover {
+	opacity: 100%;
 }
 select option:first-child {
 	display: none;
@@ -179,6 +180,16 @@ ul {
 .thing a:hover {
 	background: rgb(9, 44, 11);
 	text-decoration: none;
+}	
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 /* Id based selector rules */
