@@ -48,6 +48,7 @@ article:after {
 	clear: both;
 }
 body {
+	background: #444;
 	overflow-y: scroll;
 }
 canvas{
@@ -71,7 +72,6 @@ main {
 	font-size: 2rem;
 }
 option {
-	/* color: red; */
 	background: black;
 }
 select {

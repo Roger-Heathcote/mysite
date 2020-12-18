@@ -1,12 +1,12 @@
-import * as THREE from 'https://unpkg.com/three@0.123.0/build/three.module.js';
+import * as THREE from 'https://unpkg.com/three@0.123.0/build/three.module.js'
 
 function randIntRange(start, end) {
 	return (Math.ceil((Math.random() * (end-start)))+start)
 }
 
 function onWindowResize(){
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+	camera.aspect = window.innerWidth / window.innerHeight
+	camera.updateProjectionMatrix()
 	renderer.setSize( window.innerWidth, window.innerHeight )
 }
 
@@ -49,8 +49,8 @@ const rootElem = document.querySelector("body")
 const NEAR = 0.2
 const FAR = 80
 
-const BOX_COL = 0xff5f00;
-const GRID_COL = 0xff5f00;
+const BOX_COL = 0xff5f00
+const GRID_COL = 0xff5f00
 const BG_COL = 0x361424
 const scene = new THREE.Scene()
 scene.background = new THREE.Color( BG_COL )
@@ -60,8 +60,8 @@ scene.fog = new THREE.Fog( BG_COL, NEAR, FAR )
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, NEAR, FAR)
 camera.position.y = 2.5 // Also added at 0,0,0 by default so moved away by 5 units
 camera.position.z = 0 // Also added at 0,0,0 by default so moved away by 5 units
-camera.aspect = window.innerWidth / window.innerHeight;
-camera.updateProjectionMatrix();
+camera.aspect = window.innerWidth / window.innerHeight
+camera.updateProjectionMatrix()
   
 // Renderer
 const renderer = new THREE.WebGLRenderer( { antialias: true } )
@@ -70,7 +70,7 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 rootElem.appendChild(renderer.domElement)
 const canvas = document.querySelector("canvas")
 canvas.setAttribute('alt', '3D animated backdrop - decorative - flying over an abstract geometrical plane, through a cloud of spinning cuboids.')
-window.addEventListener( 'resize', onWindowResize, false );
+window.addEventListener( 'resize', onWindowResize, false )
 
 
 // OBJECTS
@@ -78,18 +78,18 @@ window.addEventListener( 'resize', onWindowResize, false );
 // OBJECTS
 
 // Plane
-var planeGeo = new THREE.PlaneBufferGeometry(100, 100, 8, 8);
+var planeGeo = new THREE.PlaneBufferGeometry(100, 100, 8, 8)
 var planeMat = new THREE.MeshBasicMaterial({ color: 0xf0f000, side: THREE.DoubleSide })
 var plane = new THREE.Mesh(planeGeo, planeMat)
 plane.rotateX( - Math.PI / 2)
 plane.translateY(-1)
 plane.material.transparent = true
 plane.material.opacity = 0
-scene.add(plane);
+scene.add(plane)
 
 // Grid
 // threejs grid helper had color matching issues so we hand roll a grid. 
-const size = 100;
+const size = 100
 const gridPoints = []
 const lineStart = -(size/2)
 const lineEnd = size/2
